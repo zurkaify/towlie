@@ -22,11 +22,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ViewAnimator;
 
+import android.os.IBinder;
+import android.content.Intent;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+
 import com.example.android.common.activities.SampleActivityBase;
 import com.example.android.common.logger.Log;
 import com.example.android.common.logger.LogFragment;
 import com.example.android.common.logger.LogWrapper;
 import com.example.android.common.logger.MessageOnlyLogFilter;
+
+import com.example.android.common.TowlieConnection;
+import com.example.android.common.TowlieTalkie;
+import com.example.android.bluetoothchat.TowlieService;
 
 /**
  * A simple launcher activity containing a summary sample description, sample log and a custom
@@ -42,6 +51,9 @@ public class MainActivity extends SampleActivityBase {
     // Whether the Log Fragment is currently shown
     private boolean mLogShown;
 
+    private ServiceConnection towlieServiceConn;
+//    private TowlieConnection towlieConnection;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +61,22 @@ public class MainActivity extends SampleActivityBase {
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            BluetoothChatFragment fragment = new BluetoothChatFragment();
+            BluetoothChatFragment fragment = new BluetoothChatFragment(this);
             transaction.replace(R.id.sample_content_fragment, fragment);
             transaction.commit();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        Intent intent = new Intent(this, TowlieService.class);
+        this.startService(intent);
+    }
+
+    @Override
+    protected void onStop() {
+        Intent intent = new Intent(this, TowlieService.class);
+        this.stopService(intent);
     }
 
     @Override
