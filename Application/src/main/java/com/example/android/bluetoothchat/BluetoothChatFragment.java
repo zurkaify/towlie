@@ -57,7 +57,7 @@ public class BluetoothChatFragment extends Fragment {
      */
     private StringBuffer mOutStringBuffer;
 
-    public BluetoothChatFragment(Context context)
+    //public BluetoothChatFragment(Context context)
     {
         this.context = context;
     }

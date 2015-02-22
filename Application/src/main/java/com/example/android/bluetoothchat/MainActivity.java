@@ -26,7 +26,7 @@ import com.example.android.common.logger.MessageOnlyLogFilter;
 
 import com.example.android.common.TowlieConnection;
 import com.example.android.common.TowlieTalkie;
-import com.example.android.bluetoothchat.TowlieService;
+//import com.example.android.bluetoothchat.TowlieService;
 
 /**
  * A simple launcher activity containing a summary sample description, sample log and a custom

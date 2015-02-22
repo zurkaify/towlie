@@ -7,13 +7,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="75sp"
-        android:text="@string/type" />
+        android:textSize="95sp"
+        android:text="@string/type"
+        android:background="#00FF99"/>
     <Button
         android:id="@+id/button_speech"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="75sp"
-        android:text="@string/speech" />
+        android:textSize="95sp"
+        android:text="@string/speech"
+        android:background="#00FF99"/>
 </LinearLayout>
