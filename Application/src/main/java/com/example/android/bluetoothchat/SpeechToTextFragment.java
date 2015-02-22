@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collections;
@@ -103,8 +102,6 @@ public class SpeechToTextFragment extends Fragment {
         mListenButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startSpeechService();
-                Toast.makeText(getActivity(), "this is my Toast message!!! =)",
-                        Toast.LENGTH_LONG).show();
             }
         });
 

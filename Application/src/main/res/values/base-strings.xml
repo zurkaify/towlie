@@ -15,7 +15,7 @@
  limitations under the License.
 -->
 <resources>
-    <string name="app_name">Towlie</string>
+    <string name="app_name">Car Communicator</string>
     <string name="intro_message">
         <![CDATA[
         

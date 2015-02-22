@@ -21,5 +21,6 @@
     <string name="text">Enter Text Here</string>
     <string name="type">Type</string>
     <string name="speech">Speak</string>
+    <string name="listen">Listen</string>
 
 </resources>
