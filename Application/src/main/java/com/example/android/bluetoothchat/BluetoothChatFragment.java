@@ -17,6 +17,7 @@
 package com.example.android.bluetoothchat;
 
 import android.bluetooth.BluetoothAdapter;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -31,6 +32,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.content.Context;
+import com.example.android.bluetoothchat.TowlieService;
 
 import com.example.android.common.logger.Log;
 
@@ -57,7 +59,7 @@ public class BluetoothChatFragment extends Fragment {
      */
     private StringBuffer mOutStringBuffer;
 
-    //public BluetoothChatFragment(Context context)
+    public BluetoothChatFragment(Context context)
     {
         this.context = context;
     }
@@ -137,6 +139,15 @@ public class BluetoothChatFragment extends Fragment {
         // Check that there's actually something to send
         if (message.length() > 0) {
             //TODO send message here
+            Intent clearIntent = new Intent(this.context, TowlieService.class);
+            clearIntent.putExtra("action", "clear");
+            this.context.startService(clearIntent);
+
+            Intent pushIntent = new Intent(this.context, TowlieService.class);
+            pushIntent.putExtra("action", "push");
+            pushIntent.putExtra("message", message);
+            this.context.startService(pushIntent);
+
             //Clear the current text and add the new text to the screen
             mConversationArrayAdapter.clear();
             mConversationArrayAdapter.add(message);

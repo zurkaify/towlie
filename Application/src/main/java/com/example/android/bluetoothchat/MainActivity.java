@@ -1,22 +1,7 @@
-/*
-* Copyright 2013 The Android Open Source Project
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
 package com.example.android.bluetoothchat;
 
 import android.os.Bundle;
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import com.example.android.common.activities.SampleActivityBase;
 import com.example.android.common.logger.Log;
@@ -24,9 +9,8 @@ import com.example.android.common.logger.LogFragment;
 import com.example.android.common.logger.LogWrapper;
 import com.example.android.common.logger.MessageOnlyLogFilter;
 
-import com.example.android.common.TowlieConnection;
 import com.example.android.common.TowlieTalkie;
-//import com.example.android.bluetoothchat.TowlieService;
+import com.example.android.bluetoothchat.TowlieService;
 
 /**
  * A simple launcher activity containing a summary sample description, sample log and a custom
@@ -46,12 +30,25 @@ public class MainActivity extends SampleActivityBase {
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            StartScreenFragment fragment = new StartScreenFragment();
+            StartScreenFragment fragment = new StartScreenFragment(this);
             transaction.replace(R.id.sample_content_fragment, fragment);
             transaction.commit();
         }
     }
 
+    @Override
+    protected void onStart() {
+        Intent intent = new Intent(this, TowlieService.class);
+        intent.putExtra("hostname", "192.168.129.109");
+        intent.putExtra("port", "8080");
+        this.startService(intent);
+    }
+
+    @Override
+    protected void onStop() {
+        Intent intent = new Intent(this, TowlieService.class);
+        this.stopService(intent);
+    }
 
     /** Create a chain of targets that will receive log data */
     @Override

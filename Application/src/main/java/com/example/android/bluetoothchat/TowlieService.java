@@ -1,4 +1,6 @@
-/*package com.example.android.bluetoothchat;
+package com.example.android.bluetoothchat;
+
+import java.util.concurrent.Future;
 
 import android.app.Service;
 import android.content.Intent;
@@ -13,54 +15,66 @@ import java.net.URISyntaxException;
 /**
  * Created by twwildey on 2/21/15.
  */
-/*public class TowlieService extends Service {
+public class TowlieService extends Service {
     private WebSocketClient mWebSocketClient;
+    private boolean connected;
 
-    @Override
-    public void onCreate() {
-        URI uri;
-
+    public void connect(String hostname, String port) {
         try {
-            uri = new URI("ws://192.168.192.244:8080");
+            URI uri = new URI("ws://" + hostname + ":" + port);
+
+            mWebSocketClient = new WebSocketClient(uri) {
+                @Override
+                public void onOpen(ServerHandshake serverHandshake) {
+                    connected = true;
+                }
+
+                @Override
+                public void onMessage(String s) {
+                }
+
+                @Override
+                public void onClose(int i, String s, boolean b) {
+                }
+
+                @Override
+                public void onError(Exception e) {
+                }
+            };
+
+            mWebSocketClient.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-
-        mWebSocketClient = new WebSocketClient(uri) {
-            @Override
-            public void onOpen(ServerHandshake serverHandshake) {
-                connected = true;
-            }
-
-            @Override
-            public void onMessage(String s) {
-                final String message = s;
-            }
-
-            @Override
-            public void onClose(int i, String s, boolean b) {
-                onClose.run();
-            }
-
-            @Override
-            public void onError(Exception e) {
-                onError.run();
-            }
-        };
-
-        mWebSocketClient.connect();
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        //TODO do something useful
-        return Service.START_NOT_STICKY;
-    }
+        if (mWebSocketClient == null) {
+            String hostname = intent.getStringExtra("hostname");
+            String port = intent.getStringExtra("port");
+            connect(hostname, port);
+            return Service.START_NOT_STICKY;
+        }
 
-    @Override
-    public IBinder onBind(Intent intent) {
-        //TODO for communication return IBinder implementation
-        return null;
+        if (!connected) {
+            return 0;
+        }
+
+        String action = intent.getStringExtra("action");
+        switch(action) {
+            case "push":
+                String message = intent.getStringExtra("message");
+                mWebSocketClient.send("{push:'" + message + "'}");
+                break;
+            case "clear":
+                mWebSocketClient.send("{clear:null}");
+                break;
+            default:
+                return 0;
+        }
+
+        return Service.START_NOT_STICKY;
     }
 
     @Override
@@ -68,6 +82,12 @@ import java.net.URISyntaxException;
         if (mWebSocketClient != null) {
             mWebSocketClient.close();
             mWebSocketClient = null;
+            connected = false;
         }
     }
-}*/
+
+    @Override
+    public IBinder onBind(Intent arg0) {
+        return null;
+    }
+}

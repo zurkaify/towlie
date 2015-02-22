@@ -10,12 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-
+import android.content.Context;
 
 public class StartScreenFragment extends Fragment {
 
     private Button textButton;
     private Button speechButton;
+    private Context context;
+
+    public StartScreenFragment(Context context) {
+        this.context = context;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,7 +70,7 @@ public class StartScreenFragment extends Fragment {
 
         textButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                BluetoothChatFragment fragment = new BluetoothChatFragment();
+                BluetoothChatFragment fragment = new BluetoothChatFragment(context);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.sample_content_fragment, fragment);
