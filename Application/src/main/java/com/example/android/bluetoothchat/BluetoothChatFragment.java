@@ -30,6 +30,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.content.Context;
 
 import com.example.android.common.logger.Log;
 
@@ -44,6 +45,7 @@ public class BluetoothChatFragment extends Fragment {
     private ListView mConversationView;
     private EditText mOutEditText;
     private Button mSendButton;
+    private Context context;
 
     /**
      * Array adapter for the conversation thread
@@ -54,6 +56,11 @@ public class BluetoothChatFragment extends Fragment {
      * String buffer for outgoing messages
      */
     private StringBuffer mOutStringBuffer;
+
+    public BluetoothChatFragment(Context context)
+    {
+        this.context = context;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

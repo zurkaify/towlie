@@ -23,8 +23,10 @@
 
     <!-- Min/target SDK versions (<uses-sdk>) managed by build.gradle -->
 
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
+
+    <service android:name="com.example.android.bluetoothchat.TowlieService">
+    </service>
 
     <application
         android:allowBackup="true"
