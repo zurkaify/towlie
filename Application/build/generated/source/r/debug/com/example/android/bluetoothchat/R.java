@@ -253,6 +253,7 @@ containing a value of this type.
         public static final int cardview_light_background=0x7f040001;
         public static final int cardview_shadow_end_color=0x7f040002;
         public static final int cardview_shadow_start_color=0x7f040003;
+        public static final int textbody=0x7f040004;
     }
     public static final class dimen {
         public static final int cardview_compat_inset_shadow=0x7f050000;
@@ -268,72 +269,53 @@ containing a value of this type.
         public static final int vertical_page_margin=0x7f05000a;
     }
     public static final class drawable {
-        public static final int ic_action_device_access_bluetooth_searching=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int tile=0x7f020002;
+        public static final int ic_launcher=0x7f020000;
+        public static final int tile=0x7f020001;
     }
     public static final class id {
-        public static final int alignBounds=0x7f090002;
-        public static final int alignMargins=0x7f090003;
-        public static final int bottom=0x7f090004;
-        public static final int button_send=0x7f090018;
-        public static final int center=0x7f090005;
-        public static final int center_horizontal=0x7f090006;
-        public static final int center_vertical=0x7f090007;
-        public static final int clip_horizontal=0x7f090008;
-        public static final int clip_vertical=0x7f090009;
-        public static final int discoverable=0x7f09001b;
-        public static final int edit_text_out=0x7f090017;
-        public static final int end=0x7f09000a;
-        public static final int fill=0x7f09000b;
-        public static final int fill_horizontal=0x7f09000c;
-        public static final int fill_vertical=0x7f09000d;
-        public static final int horizontal=0x7f090000;
-        public static final int in=0x7f090016;
-        public static final int insecure_connect_scan=0x7f09001a;
-        public static final int left=0x7f09000e;
-        public static final int log_fragment=0x7f090015;
-        public static final int menu_toggle_log=0x7f09001c;
-        public static final int right=0x7f09000f;
-        public static final int sample_content_fragment=0x7f090013;
-        public static final int sample_main_layout=0x7f090012;
-        public static final int sample_output=0x7f090014;
-        public static final int secure_connect_scan=0x7f090019;
-        public static final int start=0x7f090010;
-        public static final int top=0x7f090011;
-        public static final int vertical=0x7f090001;
+        public static final int alignBounds=0x7f080002;
+        public static final int alignMargins=0x7f080003;
+        public static final int bottom=0x7f080004;
+        public static final int button_send=0x7f080018;
+        public static final int button_speech=0x7f08001a;
+        public static final int button_text=0x7f080019;
+        public static final int center=0x7f080005;
+        public static final int center_horizontal=0x7f080006;
+        public static final int center_vertical=0x7f080007;
+        public static final int clip_horizontal=0x7f080008;
+        public static final int clip_vertical=0x7f080009;
+        public static final int edit_text_out=0x7f080017;
+        public static final int end=0x7f08000a;
+        public static final int fill=0x7f08000b;
+        public static final int fill_horizontal=0x7f08000c;
+        public static final int fill_vertical=0x7f08000d;
+        public static final int horizontal=0x7f080000;
+        public static final int in=0x7f080016;
+        public static final int left=0x7f08000e;
+        public static final int log_fragment=0x7f080015;
+        public static final int right=0x7f08000f;
+        public static final int sample_content_fragment=0x7f080013;
+        public static final int sample_main_layout=0x7f080012;
+        public static final int sample_output=0x7f080014;
+        public static final int start=0x7f080010;
+        public static final int top=0x7f080011;
+        public static final int vertical=0x7f080001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int device_name=0x7f030001;
-        public static final int fragment_bluetooth_chat=0x7f030002;
-        public static final int message=0x7f030003;
-    }
-    public static final class menu {
-        public static final int bluetooth_chat=0x7f080000;
-        public static final int main=0x7f080001;
+        public static final int fragment_bluetooth_chat=0x7f030001;
+        public static final int message=0x7f030002;
+        public static final int start_screen=0x7f030003;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
-        public static final int bt_not_enabled_leaving=0x7f060001;
-        public static final int button_scan=0x7f060002;
-        public static final int discoverable=0x7f060003;
-        public static final int insecure_connect=0x7f060004;
-        public static final int intro_message=0x7f060005;
-        public static final int none_found=0x7f060006;
-        public static final int none_paired=0x7f060007;
-        public static final int not_connected=0x7f060008;
-        public static final int sample_hide_log=0x7f060009;
-        public static final int sample_show_log=0x7f06000a;
-        public static final int scanning=0x7f06000b;
-        public static final int secure_connect=0x7f06000c;
-        public static final int select_device=0x7f06000d;
-        public static final int send=0x7f06000e;
-        public static final int title_connected_to=0x7f06000f;
-        public static final int title_connecting=0x7f060010;
-        public static final int title_not_connected=0x7f060011;
-        public static final int title_other_devices=0x7f060012;
-        public static final int title_paired_devices=0x7f060013;
+        public static final int intro_message=0x7f060001;
+        public static final int sample_hide_log=0x7f060002;
+        public static final int sample_show_log=0x7f060003;
+        public static final int send=0x7f060004;
+        public static final int speech=0x7f060005;
+        public static final int text=0x7f060006;
+        public static final int type=0x7f060007;
     }
     public static final class style {
         public static final int AppTheme=0x7f070000;
