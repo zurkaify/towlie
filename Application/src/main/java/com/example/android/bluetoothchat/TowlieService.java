@@ -1,4 +1,4 @@
-package com.example.android.bluetoothchat;
+/*package com.example.android.bluetoothchat;
 
 import android.app.Service;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import java.net.URISyntaxException;
 /**
  * Created by twwildey on 2/21/15.
  */
-public class TowlieService extends Service {
+/*public class TowlieService extends Service {
     private WebSocketClient mWebSocketClient;
 
     @Override
@@ -70,4 +70,4 @@ public class TowlieService extends Service {
             mWebSocketClient = null;
         }
     }
-}
+}*/
