@@ -63,14 +63,18 @@ public class StartScreenFragment extends Fragment {
         // Initialize the send button with a listener that for click events
         speechButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "this is my Toast message!!! =)",
-                        Toast.LENGTH_LONG).show();
+                SpeechToTextFragment fragment = new SpeechToTextFragment(context);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.sample_content_fragment, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 
         textButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                BluetoothChatFragment fragment = new BluetoothChatFragment(context);
+                TypeToTextFragment fragment = new TypeToTextFragment(context);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.sample_content_fragment, fragment);

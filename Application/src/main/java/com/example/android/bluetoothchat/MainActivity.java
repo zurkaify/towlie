@@ -38,6 +38,7 @@ public class MainActivity extends SampleActivityBase {
 
     @Override
     protected void onStart() {
+        super.onStart();
         Intent intent = new Intent(this, TowlieService.class);
         intent.putExtra("hostname", "192.168.129.109");
         intent.putExtra("port", "8080");
