@@ -47,6 +47,7 @@ public class MainActivity extends SampleActivityBase {
 
     @Override
     protected void onStop() {
+        super.onStop();
         Intent intent = new Intent(this, TowlieService.class);
         this.stopService(intent);
     }
