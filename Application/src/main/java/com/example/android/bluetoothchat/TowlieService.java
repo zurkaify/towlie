@@ -12,10 +12,14 @@ import org.java_websocket.handshake.ServerHandshake;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import android.util.Log;
+
 /**
  * Created by twwildey on 2/21/15.
  */
 public class TowlieService extends Service {
+    private static final String TAG = "TowlieService";
+
     private WebSocketClient mWebSocketClient;
     private boolean connected;
 
@@ -54,10 +58,12 @@ public class TowlieService extends Service {
             String hostname = intent.getStringExtra("hostname");
             String port = intent.getStringExtra("port");
             connect(hostname, port);
+            Log.i(TAG, "Connected");
             return Service.START_NOT_STICKY;
         }
 
         if (!connected) {
+            Log.i(TAG, "Message rejected");
             return 0;
         }
 
