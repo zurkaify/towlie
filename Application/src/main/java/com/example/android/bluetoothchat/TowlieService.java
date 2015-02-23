@@ -63,7 +63,7 @@ public class TowlieService extends Service {
         }
 
         if (!connected) {
-            Log.i(TAG, "Message rejected");
+            Log.i(TAG, "Message rejected - no connection");
             return 0;
         }
 
@@ -71,6 +71,7 @@ public class TowlieService extends Service {
         switch(action) {
             case "push":
                 String message = intent.getStringExtra("message");
+                Log.i(TAG, "Message sent: " + message);
                 mWebSocketClient.send("{push:'" + message + "'}");
                 break;
             case "clear":
